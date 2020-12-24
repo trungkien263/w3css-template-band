@@ -1,0 +1,101 @@
+
+/* PC */
+
+@media (min-width: 1024px) {
+    
+}
+
+/* Tablet */
+
+@media (min-width: 740px) and (max-width: 1023px) {
+    
+}
+
+/* Mobile */
+
+@media (max-width: 740px) {
+    .s-full-width {
+        display: block;
+        width: 100% !important;
+        text-align: center;
+    }
+
+    #header {
+        overflow: hidden;
+    }
+
+    #header .mobile-menu-btn {
+        display: block;
+    }
+
+    #header .search-btn {
+        display: none;
+    }
+
+    #nav {
+        display: block;
+    }
+
+    #nav li a {
+        padding: 1px 24px;
+    }
+
+    #nav > li {
+        display: block;
+    }
+
+    #nav > li:first-child {
+        display: inline-block;
+    }
+
+    #nav .sub-nav {
+        position: initial;
+        background-color: #333;
+    }
+
+    #nav .sub-nav a {
+        color: #fff;
+        padding: 5px 41px;
+    }
+
+    #content .member-list {
+        flex-direction: column;
+    }
+
+    #content .member-item {
+        padding-top: 20px;
+        position: inherit;
+        margin: auto;
+    }
+
+    #content .member-img {
+        width: 80%;
+        margin-left: 28px;
+    }
+
+    .place-list {
+        display: unset;
+    }
+
+    .place-item {
+        background-color: #fff;
+        width: 100%;
+        margin-top: 16px;
+    }
+
+    .contact {
+        display: block;
+    }
+
+    .contact__input {
+        margin-top: 16px;
+        /* display: flex; */
+        /* flex-direction: column; */
+    }
+
+    .contact__input-name,
+    .contact__input-email {
+        width: 100%;
+        margin-top: 5px;
+    }
+}

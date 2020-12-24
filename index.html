@@ -6,6 +6,7 @@
     <title>The Band</title>
     <link rel="icon" href="./assets/img/road.jpg" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
 </head>
 <body>
@@ -30,11 +31,16 @@
             </ul>
             <!-- End: NAV -->
 
-            <!-- Begin: Search btn -->
+            <!-- Mobile menu btn -->
+            <div id="mobile-menu" class="mobile-menu-btn">
+                <i class="ti-menu menu-icon"></i>
+            </div>
+
+            <!-- Search btn -->
             <div class="search-btn">
                 <i class="search-icon ti-search"></i>
             </div>
-            <!-- End: Search btn -->
+
         </div>
 
         <div id="slider">
@@ -87,7 +93,7 @@
                                 <h3 class="place-heading">New York</h3>
                                 <p class="place-date">Fri 27 Nov 2016</p>
                                 <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a href="#" class="place-buy-btn">Buy Tickets</a>
+                                <a href="#" class="place-buy-btn s-full-width">Buy Tickets</a>
                             </div>
                         </div>
                         <div class="place-item">
@@ -96,7 +102,7 @@
                                 <h3 class="place-heading">Paris</h3>
                                 <p class="place-date">Sat 28 Nov 2016</p>
                                 <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a href="#" class="place-buy-btn">Buy Tickets</a>
+                                <a href="#" class="place-buy-btn s-full-width">Buy Tickets</a>
                             </div>
                         </div>
                         <div class="place-item">
@@ -105,7 +111,7 @@
                                 <h3 class="place-heading">San Francisco</h3>
                                 <p class="place-date">Sun 29 Nov 2016</p>
                                 <p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <a href="#" class="place-buy-btn">Buy Tickets</a>
+                                <a href="#" class="place-buy-btn s-full-width">Buy Tickets</a>
                             </div>
                         </div>
                     </div>
@@ -138,11 +144,11 @@
 
                     <div class="contact__input">
                         <div class="contact__input-info">
-                            <input type="text" placeholder="Name" class="contact__input-name">
-                            <input type="email" placeholder="Email" class="contact__input-email">
+                            <input required type="text" placeholder="Name" class="contact__input-name">
+                            <input required type="email" placeholder="Email" class="contact__input-email">
                         </div>
-                        <input type="text" placeholder="Message" class="contact__input-message">
-                        <a href="#" type="submit" class="contact__input-btn">SEND</a>
+                        <input required type="text" placeholder="Message" class="contact__input-message">
+                        <a href="#" type="submit" class="contact__input-btn s-full-width">SEND</a>
                     </div>
                 </div>
 
@@ -165,5 +171,38 @@
             <p class="author">Powered by <a href="#">ntk263</a></p>
         </div>
     </div>
+
+    <script>
+        var header = document.getElementById('header');
+        var mobileMenu = document.getElementById('mobile-menu');
+        var headerHeight = header.clientHeight;
+        
+
+        // Đóng mở mobile menu
+        mobileMenu.onclick = function() {
+            var isClosed = header.clientHeight === headerHeight;
+            if (isClosed) {
+                header.style.height = 'auto';
+            } else {
+                header.style.height = null;
+            }
+        }
+
+        // Tự động đóng khi chọn menu
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]');
+        for (var i = 0; i < menuItems.length; i++) {
+            var menuItem = menuItems[i];
+            
+            menuItem.onclick = function(event) {
+                var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('sub-nav');
+                if (isParentMenu) {
+                    event.preventDefault();
+                } else {
+                    header.style.height = null;
+                }
+            }
+        }
+    </script>
+
 </body>
 </html>
